@@ -4,7 +4,9 @@ const campoB = document.getElementById('input-dados2');
 let formEValido = false;
 
 function validaNumero(campoA,campoB) {
-    return campoB !== campoA;
+    const numA = parseFloat(campoA);
+    const numB = parseFloat(campoB);
+    return numB > numA;
 }
 
 form.addEventListener('submit', function(e) {
@@ -28,8 +30,7 @@ form.addEventListener('submit', function(e) {
 });
 
 campoB.addEventListener('keyup', function(e) {
-    console.log(e.target.value);
-    formEValido = validaNumero(e.target.value);
+    formEValido = validaNumero(campoA.value, campoB.value);
 
     if (!formEValido) {
         campoB.style.border = '1px solid red';
